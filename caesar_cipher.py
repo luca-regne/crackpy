@@ -10,7 +10,6 @@ def caesar_cipher(message, rotation = 0):
         for i in range(len(number)):
             x = (number[i]+rotation)%26
             message_decrypt += converter[x]
-            message_decrypt += converter[(number[i]+rotation)]
         print("rotação +{} --> {}".format(rotation, message_decrypt))
 
     else: 
