@@ -1,11 +1,14 @@
-def caesar_cipher(message, rotation = 0):
+def caesar_cipher(message, rotation):
+    message = message.lower()
     number = []
     converter = list('abcdefghijklmnopqrstuvwxyz')
+    if rotation < 0:
+        rotation += 26
 
     for m in message:
         number.append(converter.index(m))
 
-    if rotation != 0:
+    if rotation !=0:
         message_decrypt = ''
         for i in range(len(number)):
             x = (number[i]+rotation)%26

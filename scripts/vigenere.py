@@ -1,12 +1,13 @@
 def vigenere(message, key):
     converter = list('abcdefghijklmnopqrstuvwxyz')
-
+    output = ''
     x = len(key)
-    while len(message) != x:
-        key.append(key[x])
+
+    while len(message) > x:
+        key.append(key[len(key) - x])
         x += 1
 
     for i in range(len(message)):
-        message[i] = converter[ converter.index(message[i]) + converter.index(key[i]) % 26 ]
+        output += converter[ ( converter.index( message[i] ) + converter.index( key[i] ) ) % 26 ]
     
-    return(message)
+    print(output)
