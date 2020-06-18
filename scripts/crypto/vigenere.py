@@ -3,9 +3,8 @@ def vigenere(message, key):
     output = ''
     x = len(key)
 
-    while len(message) > x:
-        key.append(key[len(key) - x])
-        x += 1
+    while len(message) > len(key):
+        key.append(key[ len(key) - x ])
 
     for i in range(len(message)):
         output += converter[ ( converter.index( message[i] ) + converter.index( key[i] ) ) % 26 ]
