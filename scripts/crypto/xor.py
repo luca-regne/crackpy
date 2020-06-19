@@ -1,15 +1,16 @@
 from ..code import toBinary, toAscii
 
 def xor(message, key):
-    message_bin = toBinary.ascii(message)
+    message = list(message)
     key = list(key)
-    while len(message_bin) > len(key):
+    
+    while len(message) > len(key):
         key.insert(0, '0')
 
-    for i in range(len(message_bin)):
-        if message_bin[i] == key[i]:
-            message_bin[i] =  '0'
+    for i in range(len(message)):
+        if message[i] == key[i]:
+            message[i] =  '0'
         else:
-            message_bin[i] = '1'
+            message[i] = '1'
 
-    return ''.join(message_bin)
+    print(''.join(message))

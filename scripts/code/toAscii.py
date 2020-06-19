@@ -1,4 +1,4 @@
-def binary(binary):
+def fromBinary(binary):
     binary_int = int(binary, 2)
     byte_number = binary_int.bit_length() + 7 // 8
 

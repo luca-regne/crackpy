@@ -1,4 +1,4 @@
-def ascii(ascii):
+def fromAscii(ascii):
     byte_array = ascii.encode()
     binary_int = int.from_bytes(byte_array, 'big')
     binario = list(bin(binary_int))
