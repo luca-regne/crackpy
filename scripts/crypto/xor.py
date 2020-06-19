@@ -1,5 +1,3 @@
-from ..code import toBinary, toAscii
-
 def xor(message, key):
     message = list(message)
     key = list(key)

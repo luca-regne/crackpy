@@ -1,5 +1,5 @@
 import argparse
-from scripts.code import toBinary
+from scripts.converter import toBinary
 from scripts.crypto.caesar_cipher import caesar_cipher
 from scripts.crypto.vigenere import vigenere
 from scripts.crypto.xor import xor
