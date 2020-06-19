@@ -15,7 +15,7 @@ parser.add_argument('-v', action='store', dest='VIGENERE_KEY', type=str,
                     help="A key usage to decrypt a Vigenere Message.")
                     
 parser.add_argument('-x', action='store', dest='XOR_KEY', type=str,
-                    help='A key usage to decrypt XOR message.')
+                    help='A binary key usage to decrypt with XOR.')
 
 arguments = parser.parse_args()
 if arguments.ROTATION != None:
