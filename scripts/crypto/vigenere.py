@@ -9,4 +9,4 @@ def vigenere(message, key):
     for i in range(len(message)):
         output += converter[ ( converter.index( message[i] ) + converter.index( key[i] ) ) % 26 ]
     
-    print(output)
+    return(output)

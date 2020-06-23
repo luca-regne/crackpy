@@ -1,5 +1,6 @@
 import argparse
 from scripts.converter import toBinary
+from scripts.coding import base64 
 from scripts.crypto.caesar_cipher import caesar_cipher
 from scripts.crypto.vigenere import vigenere
 from scripts.crypto.xor import xor
@@ -21,12 +22,26 @@ parser.add_argument('-x', action='store', dest='XOR_KEY_BINARY', type=str,
 parser.add_argument('-xA', action='store', dest='XOR_KEY_ASCII', type=str,
                     help='Usage to decrypt a ascii message with bin key using xor decrypt (Return is a binary)')
 
+parser.add_argument('-b64', action='store_true', 
+                    help='Deconding base64 message to ascii value')
+
 arguments = parser.parse_args()
+
+message = arguments.MESSAGE
+
+if arguments.b64 :
+    if message[-1] + message[-2] == '==':
+        message = base64.fromBase64(message)
+    else:
+        message = base64.toBase64(message)
+
 if arguments.ROTATION != None:
-    caesar_cipher(arguments.MESSAGE, arguments.ROTATION)
+    message = caesar_cipher(message, arguments.ROTATION)
 elif arguments.VIGENERE_KEY != None:
-    vigenere(arguments.MESSAGE, list(arguments.VIGENERE_KEY))
+    message = vigenere(message, list(arguments.VIGENERE_KEY))
 elif arguments.XOR_KEY_BINARY != None:
-    xor(arguments.MESSAGE, arguments.XOR_KEY_BINARY)
+    message = xor(message, arguments.XOR_KEY_BINARY)
 elif arguments.XOR_KEY_ASCII != None:
-    xor(arguments.MESSAGE, toBinary.fromAscii(arguments.XOR_KEY_ASCII))
+    message = xor(message, toBinary.fromAscii(arguments.XOR_KEY_ASCII))
+
+print(message)

@@ -11,4 +11,4 @@ def xor(message, key):
         else:
             message[i] = '1'
 
-    print(''.join(message))
+    return(str(''.join(message)))

@@ -12,3 +12,6 @@ def fromAscii(ascii):
             binario[i] = '1'
     
     return(binario)
+
+
+    
